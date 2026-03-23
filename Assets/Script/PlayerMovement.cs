@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Physics2D.BoxCast(transform.position, boxsize, 0, -transform.up, maxdistance, mask))
         {
-            Debug.Log("ground");
+            //Debug.Log("ground");
             return true;
         }
         else
