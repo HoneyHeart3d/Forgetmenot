@@ -31,12 +31,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void Playermove()
     {
-        if (rb.velocity.magnitude < maxspeed)
+        if (rb.linearVelocity.magnitude < maxspeed)
         {
             rb.AddForce(Input.GetAxis("Horizontal") * Vector2.right * speed);
         }
     }
-    private bool Groundcheck()
+    public bool Groundcheck()
     {
         if (Physics2D.BoxCast(transform.position, boxsize, 0, -transform.up, maxdistance, mask))
         {
