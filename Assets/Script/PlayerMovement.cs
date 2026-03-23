@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 boxsize;
     public LayerMask mask;
     public float maxspeed;
+    public bool grounded;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +37,13 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Input.GetAxis("Horizontal") * Vector2.right * speed);
         }
     }
-    public bool Groundcheck()
+    private bool Groundcheck()
     {
         if (Physics2D.BoxCast(transform.position, boxsize, 0, -transform.up, maxdistance, mask))
         {
             //Debug.Log("ground");
             return true;
+
         }
         else
         {
